@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import AddIcon from '@mui/icons-material/Add';
+import './CreateArea.css'
 
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
@@ -10,6 +11,8 @@ function CreateArea(props) {
     title: "",
     content: ""
   });
+
+  const [error, setError] = useState("");
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -23,11 +26,16 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
-    props.onAdd(note);
-    setNote({
-      title: "",
-      content: ""
-    });
+    if (note.title.trim() === "" || note.content.trim() === "") {
+      setError("Both title and content are required.");
+    } else {
+      props.onAdd(note);
+      setNote({
+        title: "",
+        content: ""
+      });
+      setError("");
+    }
     event.preventDefault();
   }
 
@@ -55,6 +63,7 @@ function CreateArea(props) {
           placeholder="Take a note..."
           rows={isExpanded ? 3 : 1}
         />
+        <p className="error">{error}</p>
         <Zoom in={isExpanded}>
           <Fab onClick={submitNote}>
             <AddIcon />

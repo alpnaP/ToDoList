@@ -1,0 +1,83 @@
+.create-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.create-note input,
+.create-note textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.create-note textarea {
+  resize: none;
+}
+
+.create-note .MuiFab-root {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.create-note .MuiFab-root:hover {
+  background-color: #303f9f;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.button-container button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #45a049;
+}
+
+.button-container button:active {
+  background-color: #3e8e41;
+}
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .create-note {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .create-note input,
+  .create-note textarea {
+    font-size: 0.9rem;
+  }
+
+  .create-note .MuiFab-root {
+    width: 40px;
+    height: 40px;
+  }
+}
